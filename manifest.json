@@ -1,0 +1,37 @@
+{
+  "name": "YT Time Stamps",
+  "version": "1.0.0",
+  "description": "Save and manage timestamps in YouTube videos",
+  "permissions": ["storage", "tabs"],
+  "host_permissions": ["https://*.youtube.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.youtube.com/*"],
+      "js": ["script.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "assets/bookmark.png",
+        "assets/play.png",
+        "assets/delete.png",
+        "assets/save.png"
+      ],
+      "matches": ["https://*.youtube.com/*"]
+    }
+  ],
+  "browser_action": {
+    "default_icon": {
+      "16": "assets/ext-icon.png",
+      "24": "assets/ext-icon.png",
+      "32": "assets/ext-icon.png"
+    },
+    "default_title": "YT Time Stamps",
+    "default_popup": "popup.html"
+  },
+  "manifest_version": 3
+}
